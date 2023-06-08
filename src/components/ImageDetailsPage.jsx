@@ -6,9 +6,9 @@ const ImageDetailsPage = ({ selectedArtwork }) => {
 			<div>{selectedArtwork.title}</div>
 			<div>{selectedArtwork.artist_title}</div>
 			{/* TO DO: render image from AIC API call */}
-			<image alt={selectedArtwork.thumbnail.alt_text}>
-				{selectedArtwork.thumbnail.alt_text}
-			</image>
+			<p alt={selectedArtwork.thumbnail.alt_text}>
+				Image placeholder for: {selectedArtwork.thumbnail.alt_text}
+			</p>
 			{/* TO DO: add back button functionality using history */}
 			<button>Back</button>
 		</>

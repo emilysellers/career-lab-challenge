@@ -33,6 +33,7 @@ export function App() {
 				<ul>
 					{searchResults.map((artwork, index) => (
 						<a
+							key={artwork.image_id}
 							href={`#${artwork.image_id}`}
 							onClick={() => setSelectedArtwork(searchResults[index])}
 						>
