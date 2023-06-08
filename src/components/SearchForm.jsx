@@ -9,7 +9,8 @@ export function SearchForm({ onSearchSubmit }) {
 		setQuery(evt.target.value);
 	}
 
-	function handleFormSubmit() {
+	function handleFormSubmit(e) {
+		e.preventDefault(); // Prevent app from refreshing on form submit
 		onSearchSubmit(query);
 	}
 
