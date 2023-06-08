@@ -5,9 +5,11 @@ import { SearchForm } from './SearchForm';
 import { Footer } from './Footer';
 
 import './App.css';
+// import ImageDetailsPage from './ImageDetailsPage.jsx';
 
 export function App() {
 	const [searchResults, setSearchResults] = useState([]);
+	const [selectedArtworkId, setSelectedArtworkId] = useState('');
 
 	function onSearchSubmit(query) {
 		// Search for the users's query.
@@ -18,6 +20,7 @@ export function App() {
 		// @see: ./src/api.js
 		searchArtworks(query).then((json) => {
 			const artworksData = json.data;
+			// console.log(artworksData);
 			setSearchResults(artworksData); // save search results to state
 		});
 	}
@@ -28,10 +31,15 @@ export function App() {
 			<SearchForm onSearchSubmit={onSearchSubmit} />
 			<ul>
 				{searchResults.map((artwork) => (
-					<li key={artwork.title}>
-						{artwork.title} by{' '}
-						{artwork.artist_title == null ? 'unknown' : artwork.artist_title}
-					</li>
+					<a
+						href={`#${artwork.image_id}`}
+						onClick={() => setSelectedArtworkId(artwork.image_id)}
+					>
+						<li key={artwork.title}>
+							{artwork.title} by{' '}
+							{artwork.artist_title == null ? 'unknown' : artwork.artist_title}
+						</li>
+					</a>
 				))}
 			</ul>
 			<Footer />
