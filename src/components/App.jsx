@@ -29,7 +29,8 @@ export function App() {
 			<ul>
 				{searchResults.map((artwork) => (
 					<li key={artwork.title}>
-						{artwork.title} by {artwork.artist_title}
+						{artwork.title} by{' '}
+						{artwork.artist_title == null ? 'unknown' : artwork.artist_title}
 					</li>
 				))}
 			</ul>
