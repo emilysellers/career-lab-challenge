@@ -26,6 +26,13 @@ export function App() {
 		<div className="App">
 			<h1>TCL Career Lab Art Finder</h1>
 			<SearchForm onSearchSubmit={onSearchSubmit} />
+			<ul>
+				{searchResults.map((artwork) => (
+					<li key={artwork.title}>
+						{artwork.title} by {artwork.artist_title}
+					</li>
+				))}
+			</ul>
 			<Footer />
 		</div>
 	);
