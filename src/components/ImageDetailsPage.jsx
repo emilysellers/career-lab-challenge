@@ -1,12 +1,16 @@
 import React from 'react';
 
-const ImageDetailsPage = () => {
+const ImageDetailsPage = ({ selectedArtwork }) => {
 	return (
 		<>
-			<div>title</div>
-			<div>artist</div>
-			<div>image</div>
-			<div>back button</div>
+			<div>{selectedArtwork.title}</div>
+			<div>{selectedArtwork.artist_title}</div>
+			{/* TO DO: render image from AIC API call */}
+			<image alt={selectedArtwork.thumbnail.alt_text}>
+				{selectedArtwork.thumbnail.alt_text}
+			</image>
+			{/* TO DO: add back button functionality using history */}
+			<button>Back</button>
 		</>
 	);
 };
